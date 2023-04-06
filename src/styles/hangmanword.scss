@@ -1,0 +1,11 @@
+.hangmanWordWrapper {
+    display: flex;
+    font-family: monospace;
+    font-size: 6rem;
+    font-weight: bold;
+    gap: .25em;
+    text-transform: uppercase;
+    .letterSpanWrapper {
+        border-bottom: .1em solid black;
+    }
+}
