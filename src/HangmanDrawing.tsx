@@ -1,44 +1,48 @@
 import { v4 as uuidV4 } from 'uuid';
 
-const Head = (
-    <div className="head" key={uuidV4()}></div>
+const attemptOne = (
+    <div className='attempt' key={uuidV4()}></div>
 );
 
-const Body = (
-    <div className="body" key={uuidV4()}></div>
+const attemptTwo = (
+    <div className='attempt' key={uuidV4()}></div>
 );
 
-const RightArm = (
-    <div className="rightArm" key={uuidV4()}></div>
+const attemptThree = (
+    <div className='attempt' key={uuidV4()}></div>
 );
 
-const LeftArm = (
-    <div className="leftArm" key={uuidV4()}></div>
+const attemptFour = (
+    <div className='attempt' key={uuidV4()}></div>
 );
 
-const RightLeg = (
-    <div className="rightLeg" key={uuidV4()}></div>
+const attemptFive = (
+    <div className='attempt' key={uuidV4()}></div>
 );
 
-const LeftLeg = (
-    <div className="leftLeg" key={uuidV4()}></div>
+const attemptSix = (
+    <div className='attempt' key={uuidV4()}></div>
 );
 
 type HangmanDrawingProps = {
     numberOfGuesses: number
 };
 
-const bodyParts = [Head, Body, RightArm, LeftArm, RightLeg, LeftLeg];
+const attempts = [attemptOne, attemptTwo, attemptThree, attemptFour, attemptFive, attemptSix];
+
 
 const HangmanDrawing = ({numberOfGuesses}: HangmanDrawingProps) => {
+    
+    const numberOfAttempts: number = 6;
 
     return (
         <div className="drawingWrapper">
-            {bodyParts.slice(0, numberOfGuesses)}
-            <div className="topVerticalLine"></div>
-            <div className="topHorizontalLine"></div>
-            <div className="verticalLine"></div>
-            <div className="bottomHorizontalLine"></div>
+            <div className='attempts'>
+                <h2>You have {numberOfAttempts - numberOfGuesses} attempts to guess the word</h2>
+            </div>
+            <div className='attempts-wrapper'>
+                {attempts.slice(0, numberOfGuesses)}
+            </div>
         </div>
     )
 }

@@ -44,7 +44,6 @@ function App() {
     return () => {
       document.removeEventListener('keypress', handler);
     }
-
   }, [guessedLetters]);
 
   useEffect(()=> {
@@ -75,10 +74,7 @@ function App() {
       // maxWidth: '800px'
     }}
    >
-    <div style={{ fontSize: '2.5rem', textAlign: 'center', fontFamily: 'monospace'}}>
-      {isWinner && 'Winner! - Press "Enter" to try again'}
-      {isLoser && 'Nice try! - Press "Enter" to try again'}
-    </div>
+    
     <HangmanDrawing numberOfGuesses={incorrectLetters.length} />
     <HangmanWord 
       reveal={isLoser}
@@ -95,8 +91,14 @@ function App() {
         addGuessedLetter={addGuessedLetter}
       />
     </div>
+    <div className="message">
+      {isWinner && 'Winner! - Press "Enter" to try again'}
+      {isLoser && 'Nice try! - Press "Enter" to try again'}
+    </div>
    </div>
   );
 }
 
 export default App;
+
+// style={{ fontSize: '2.5rem', textAlign: 'center', fontFamily: 'monospace'}}
